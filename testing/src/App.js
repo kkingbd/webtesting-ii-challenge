@@ -17,35 +17,37 @@ class App extends Component {
 strikeUpdate = (e)=>{
   e.preventDefault();
   let updatedStrikes =this.state.strike;
+  let updatedBalls  =this.state.ball;
   if(updatedStrikes <4){
     updatedStrikes++;
     this.setState({strike: updatedStrikes })
   }
-  if(this.state.ball===4 || this.state.strike ===3){
+  if(updatedBalls===4 || updatedStrikes === 3){
     this.setState({strike: 0, ball: 0 })
   }
 }
 ballUpdate = (e) => {
    e.preventDefault();
     let updatedBalls = this.state.ball;
+    let updatedStrikes = this.state.strike;
     if (updatedBalls < 3) {
       updatedBalls++;
       this.setState({ball: updatedBalls})
     }
-    if(this.state.ball === 4 || this.state.strike === 3){
-      this.setState({...this.state, strike: 0, ball: 0 })
+    if(updatedBalls===4 || updatedStrikes === 3){
+      this.setState({strike: 0, ball: 0 })
     }
 }
 foulUpdate = (e) => {
   e.preventDefault();
-  let updatedFoul= this.state.strike;
-  if (updatedFoul < 2) {
-    updatedFoul++;
-    this.setState({...this.state, strike: updatedFoul})
+  let updatedStrikes= this.state.strike;
+  if (updatedStrikes < 2) {
+    updatedStrikes++;
+    this.setState({...this.state, strike: updatedStrikes})
   } 
 }
 hit = ()=>{
-  this.setState({...this.state,strike: 0, ball: 0})
+  this.setState({...this.state, strike: 0, ball: 0})
 }
   render() {
     return (
@@ -54,7 +56,7 @@ hit = ()=>{
                     ball          = {this.state.ball}
         />
         <Dashboard  ballUpdate    = {this.ballUpdate}
-                    strikeUpdate  = {this.strikesUpdate}
+                    strikeUpdate  = {this.strikeUpdate}
                     foulUpdate    = {this.foulUpdate}
                     hit           = {this.hit}
         />
