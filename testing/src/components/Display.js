@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Display = (props) =>{
+export default class Display extends Component {
+  render() {
     return (
-      <div>
-        <h1> Display </h1>
-      </div>
+      <>
+        <h2> Dashboard : </h2>
+        <div id ="strike"> Strikes : {this.props.strike}</div>
+        <div id ="ball"> Balls : {this.props.ball} </div>
+      </>
     )
+  }
 }
-
-
-export default Display;
