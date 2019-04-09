@@ -5,8 +5,8 @@ export default class Display extends Component {
     return (
       <>
         <h2> Dashboard : </h2>
-        <div id ="strike"> Strikes : {this.props.strike}</div>
-        <div id ="ball"> Balls : {this.props.ball} </div>
+        <div data-testid ="strike"> Strikes : {this.props.strike}</div>
+        <div data-testid ="ball"> Balls : {this.props.ball} </div>
       </>
     )
   }
